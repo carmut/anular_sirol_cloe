@@ -28,4 +28,10 @@ export class AdminComponent implements OnInit {
       this.loading = false;
     });
   }
+
+  suppr(id: any){
+    this.voyageService.delete(id).subscribe(data => {
+      window.location.reload();
+    });
+  }
 }

@@ -3,6 +3,7 @@ import { Voyage } from '../models/voyage';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { VoyageForm } from '../models/voyage-form';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,20 @@ export class VoyageService {
       retry(1),
       catchError(this.handleError)
     );
+  }
+
+  add(voyage: VoyageForm): Observable<Voyage>{
+    return this.httpClient.post<Voyage>(this.Url+'voyages', voyage).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
+  }
+
+  delete(id: any){
+    return this.httpClient.delete<Voyage>(this.Url+'voyages/' + id).pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -13,6 +13,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-  session = sessionStorage.getItem('username');
+  session = localStorage.getItem('token');
   
+  
+  constructor(private router: Router){
+
+  }
+
+  deco(){
+    localStorage.removeItem('token');
+    this.session = null
+
+    this.router.navigate(['/'])
+  }
 }
+

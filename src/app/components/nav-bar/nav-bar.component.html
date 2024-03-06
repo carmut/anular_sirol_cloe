@@ -3,10 +3,13 @@
       <button mat-button [routerLink]="''">
         page d'acceuil
       </button>
+      <button *ngIf="session!=null"  mat-button [routerLink]="'/admin'">
+        administration
+      </button>
 
       <div *ngIf="session!=null"  class="spacer"></div>
 
-      <p *ngIf="session!=null" >bonjour {{session}}</p>
+      <p *ngIf="session!=null" >bonjour admin</p>
 
       <div class="spacer"></div>
 
@@ -14,7 +17,7 @@
         connexion
       </button>
       
-      <button *ngIf="session!=null"  mat-button [routerLink]="'/auth'">
+      <button *ngIf="session!=null"  mat-button (click)="deco()">
         deconnexion
       </button>
     </mat-toolbar>
