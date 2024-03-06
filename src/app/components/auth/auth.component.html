@@ -2,8 +2,8 @@
     <div class="login">
         <form #loginform="ngForm" (ngSubmit)="login()">
             
-            <p>
-                <mat-form-field>
+            <div class="example-container">
+                <mat-form-field class="taille100">
                     <mat-label> nom d'utilisateur</mat-label>
                     <input required type="text" matInput placeholder="Username" 
                     #username="ngModel" [(ngModel)]="user.username" name="username">
@@ -11,10 +11,10 @@
                         informations incorecte
                     </mat-error>
                 </mat-form-field>
-            </p>
+            </div>
 
-            <p>
-                <mat-form-field>
+            <div class="example-container">
+                <mat-form-field class="taille100">
                     <mat-label> mot de passe </mat-label>
                     <input required type="password" matInput placeholder="password" 
                     #password="ngModel" [(ngModel)]="user.password" name="password">
@@ -22,7 +22,7 @@
                         information incorecte 
                     </mat-error>
                 </mat-form-field>
-            </p>
+            </div>
 
             <button type="submit" mat-raised-button color="primary">se connecter</button>
         </form>

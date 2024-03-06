@@ -2,6 +2,9 @@
 
 <div class="container">
     <form (submit)="add_voyage()" #formVoyage="ngForm">
+
+        <h2>informations principal</h2>
+        
         <div class="example-container">
             <mat-form-field class="taille100">
                 <mat-label>destination</mat-label>
@@ -26,23 +29,6 @@
             </mat-form-field>
         </div>
     
-        <div class="example-container">
-            <mat-form-field class="taille100">
-                <mat-label>source photo principale</mat-label>
-                <input matInput #voyage_mainPicture_src="ngModel" (ngModel)="voyage.mainPicture?.src" 
-                    name="voyage_mainPicture_src" type="text" required>
-                <mat-error *ngIf="!voyage_mainPicture_src.valid">vueillez indiquer l'url l'image principale</mat-error>
-            </mat-form-field>
-
-            <mat-form-field class="taille100">
-                <mat-label>description photo principale</mat-label>
-                <input matInput #voyage_mainPicture_alt="ngModel" (ngModel)="voyage.mainPicture?.alt" 
-                    name="voyage_mainPicture_alt" type="text" required>
-                <mat-error *ngIf="!voyage_mainPicture_alt.valid">vueillez indiquer la description l'image principale</mat-error>
-            </mat-form-field>
-
-        </div>
-    
         <!-- ajouter Pictures-->
     
         <div class="example-container">
@@ -61,6 +47,26 @@
                 <mat-label>nombre d'étoiles</mat-label>
                 <input matInput #voyage_nbStar="ngModel" [(ngModel)]="voyage.nbStar" name="voyage_nbStar" type="number" required>
                 <mat-error *ngIf="!voyage_nbStar.valid">vueillez indiquer le nombre d'étoile(s)</mat-error>
+            </mat-form-field>
+        </div>
+
+        <h2>image principal</h2>
+
+        <div class="example-container">
+            <mat-form-field class="taille100">
+                <mat-label>source photo principale</mat-label>
+                <input matInput #voyage_mainPicture_src="ngModel" (ngModel)="voyage.mainPicture?.src" 
+                    name="voyage_mainPicture_src" type="text" required>
+                <mat-error *ngIf="!voyage_mainPicture_src.valid">vueillez indiquer l'url l'image principale</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="example-container">
+            <mat-form-field class="taille100">
+                <mat-label>description photo principale</mat-label>
+                <input matInput #voyage_mainPicture_alt="ngModel" (ngModel)="voyage.mainPicture?.alt" 
+                    name="voyage_mainPicture_alt" type="text" required>
+                <mat-error *ngIf="!voyage_mainPicture_alt.valid">vueillez indiquer la description l'image principale</mat-error>
             </mat-form-field>
         </div>
 
