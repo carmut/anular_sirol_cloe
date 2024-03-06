@@ -8,13 +8,13 @@ import {MatCardModule} from '@angular/material/card';
 import { Images } from '../../models/images';
 
 @Component({
-  selector: 'app-acceuil',
+  selector: 'app-admin',
   standalone: true,
   imports: [CommonModule, RouterModule,MatCardModule, MatButtonModule],
-  templateUrl: './acceuil.component.html',
-  styleUrl: './acceuil.component.css'
+  templateUrl: './admin.component.html',
+  styleUrl: './admin.component.css'
 })
-export class AcceuilComponent implements OnInit {
+export class AdminComponent implements OnInit {
   voyages?: Voyage[];
   loading = true;
 
@@ -26,8 +26,6 @@ export class AcceuilComponent implements OnInit {
     this.voyageService.getAll().subscribe(data => {
       this.voyages = data;
       this.loading = false;
-      console.log(this.voyages[0].nbStar)
-      console.log(this.voyages[0]);
     });
   }
 }

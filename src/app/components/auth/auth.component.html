@@ -1,1 +1,31 @@
-<p>auth works!</p>
+<div class="container">
+    <div class="login">
+        <form #loginform="ngForm" (ngSubmit)="login()">
+            
+            <p>
+                <mat-form-field>
+                    <mat-label> nom d'utilisateur</mat-label>
+                    <input required type="text" matInput placeholder="Username" 
+                    #username="ngModel" [(ngModel)]="user.username" name="username">
+                    <mat-error *ngIf="!username.valid">
+                        informations incorecte
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <mat-label> mot de passe </mat-label>
+                    <input required type="password" matInput placeholder="password" 
+                    #password="ngModel" [(ngModel)]="user.password" name="password">
+                    <mat-error *ngIf="!password.valid">
+                        information incorecte 
+                    </mat-error>
+                </mat-form-field>
+            </p>
+
+            <button type="submit" mat-raised-button color="primary">se connecter</button>
+        </form>
+    </div>
+
+</div>

@@ -4,8 +4,18 @@
         page d'acceuil
       </button>
 
-      <button mat-button [routerLink]="'/auth'">
+      <div *ngIf="session!=null"  class="spacer"></div>
+
+      <p *ngIf="session!=null" >bonjour {{session}}</p>
+
+      <div class="spacer"></div>
+
+      <button *ngIf="session==null"  mat-button [routerLink]="'/auth'">
         connexion
+      </button>
+      
+      <button *ngIf="session!=null"  mat-button [routerLink]="'/auth'">
+        deconnexion
       </button>
     </mat-toolbar>
 </p>
